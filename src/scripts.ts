@@ -35,3 +35,13 @@ let minus = (a: number, b: number): number => {
 const result = minus(8, 4);
 
 //but if function don't return any value it will be void type
+
+//Type Aliases
+
+//INTEAD of writing parameter types again and again we can define once
+type StrOrNum = number | string;
+let user = (id: StrOrNum) => {
+    console.log(id);
+}
+
+user('qwerty');

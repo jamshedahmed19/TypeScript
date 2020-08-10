@@ -29,4 +29,7 @@ var minus = function (a, b) {
     return a - b;
 };
 var result = minus(8, 4);
-//but if function don't return any value it will be void type
+var user = function (id) {
+    console.log(id);
+};
+user('qwerty');
