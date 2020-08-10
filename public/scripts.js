@@ -1,35 +1,17 @@
 "use strict";
-var greet;
-//greet = "hello, WORLD"
-greet = function () {
-    console.log("Hello WORLD");
+//in Typscript we can predefine a functions structure
+var calc;
+calc = function (n1, n2, action) {
+    if (action === 'add') {
+        return n1 + n2;
+    }
+    else {
+        return n1 - n2;
+    }
 };
-greet();
-//we can make paramters optional, but if we don't pass down the parameter
-//it will be undefined, so we can give a default value to parameter instead
-//of making them optional
-var add = function (a, b, c) {
-    console.log(a + b);
-    console.log(c);
+console.log(calc(2, 10, 'add'));
+var user;
+user = function (person) {
+    console.log(person.name + " is " + person.age + " years old");
 };
-var sub = function (a, b, c) {
-    if (c === void 0) { c = 20; }
-    console.log(a - b);
-    console.log(c);
-};
-//but if we pass down the value it will over ride the default value
-add(2, 5);
-sub(2, 5);
-sub(2, 5, 10);
-//Note: we can't give optional and default values together
-//c?: number  = 20 but instead c: number  = 20, c?: number
-//we can define the return type but,
-//Typsrcipt automatically determine the return type of the function 
-var minus = function (a, b) {
-    return a - b;
-};
-var result = minus(8, 4);
-var user = function (id) {
-    console.log(id);
-};
-user('qwerty');
+user({ name: 'jamshed', age: 19 });
