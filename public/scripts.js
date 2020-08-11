@@ -1,32 +1,34 @@
 "use strict";
-var greet;
-//greet = "hello, WORLD"
-greet = function () {
-    console.log("Hello WORLD");
-};
-greet();
-//we can make paramters optional, but if we don't pass down the parameter
-//it will be undefined, so we can give a default value to parameter instead
-//of making them optional
-var add = function (a, b, c) {
-    console.log(a + b);
-    console.log(c);
-};
-var sub = function (a, b, c) {
-    if (c === void 0) { c = 20; }
-    console.log(a - b);
-    console.log(c);
-};
-//but if we pass down the value it will over ride the default value
-add(2, 5);
-sub(2, 5);
-sub(2, 5, 10);
-//Note: we can't give optional and default values together
-//c?: number  = 20 but instead c: number  = 20, c?: number
-//we can define the return type but,
-//Typsrcipt automatically determine the return type of the function 
-var minus = function (a, b) {
-    return a - b;
-};
-var result = minus(8, 4);
-//but if function don't return any value it will be void type
+//when we select element in Typscript it gives an error if
+//we try to access any property of that element
+// const anchor = document.querySelector('a');
+// console.log(anchor);
+// console.log(anchor.href);
+//because Typescript don't know whether that element exist
+//so we can over come this problem by using conditional statment or
+//by adding exclamation mark
+// const anchor = document.querySelector("a");
+// if (anchor) {
+//   console.log(anchor.href);
+// }
+var anchor = document.querySelector("a");
+console.log(anchor);
+console.log(anchor.href);
+//Typscript knows the element type if we hover over anchor it
+//show its elemet type it is usefull because then if we use that
+//anchor tag it will only give those properties and methods related to it
+console.log(anchor.tagName);
+//if we select an element by class name then ts can't know element type of that class
+//so we can type cast it by ourselves by using as keyword and then we don't to use ! sign
+//const form = document.querySelector('form');
+var form = document.querySelector(".new-item-form");
+console.log(form.children);
+//selecting inputs
+var type = document.querySelector("#type");
+var tofrom = document.querySelector("#tofrom");
+var details = document.querySelector("#details");
+var amount = document.querySelector("#amount");
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+});
